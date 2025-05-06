@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     permissions:
       contents: read #This is required for actions/checkout
 
@@ -34,7 +34,7 @@ jobs:
           path: '${{ github.workspace }}/target/*.war'
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: build
     environment:
       name: 'Production'
@@ -52,9 +52,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_075E285EA87F457585FCED6B8D3D4689 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B8D4508300874C10AF485161B55936E8 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_FB5D4CCF2A894E2FAC9E66D8294A101F }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6D5A5E3BFD6D44EEAE7D4EF05E5E5354 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_BF816C0014A34DF3B94533438F2DB7F1 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_5FB6EEADC9E84CD7A5146212DAE5A844 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
